@@ -50,6 +50,7 @@ public class Sistema{
             System.out.println("PROFESSOR JÁ CADASTRADO!");
         }else {
             this.professores.add(professor);
+            Banco.adicionarProfessor(professor);
         }
     }
 

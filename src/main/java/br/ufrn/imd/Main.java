@@ -9,17 +9,15 @@ public class Main{
         Sistema sistema = new Sistema();
         Scanner teclado = new Scanner(System.in);
 
+        Banco banco = new Banco();
+        banco.inicializarBanco();
+
         sistema.mostraMenu();
 
         String opcao = "";
         do{
-            try {
                 opcao = teclado.nextLine();
                 sistema.verificarOpcao(opcao);
-
-            }catch (Exception e){
-                System.out.println("DEU ERROOOOOOO!");
-            }
 
         }while(!sistema.fecharSistema(opcao));
         teclado.close();
