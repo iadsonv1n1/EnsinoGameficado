@@ -2,6 +2,7 @@ package br.ufrn.imd;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -37,11 +38,26 @@ public class Banco {
     public static void adicionarProfessor(Professor professor) {
         DatabaseReference ref = database.getReference("profs");
 
-        DatabaseReference newProf = ref.push();
+        DatabaseReference newProf = ref.child(normalizeEmail(professor.getEmail()));
 
         newProf.child("nome").setValueAsync(professor.getNome());
         newProf.child("email").setValueAsync(professor.getEmail());
     }
+
+    public static String normalizeEmail(String email) {
+        return email.replace(".", "");
+    }
+
+    public static void adicionarTurma(Turma turma) {
+        String profId = normalizeEmail(turma.getProfessor());
+
+        DatabaseReference ref = database.getReference("profs/" + profId + "/turmas");
+
+        DatabaseReference newTurma = ref.child(turma.getNome());
+
+        newTurma.child("codigo").setValueAsync(turma.getCode());
+    }
+
 
     public static void lerDados(FirebaseDatabase database) {
         // Referência à localização no banco de dados

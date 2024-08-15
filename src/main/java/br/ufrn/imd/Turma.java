@@ -15,4 +15,16 @@ public class Turma {
 
         return numeroAleatorio;
     }
+
+    public String getNome() {
+        return this.nome;
+    }
+    public int getCode() {
+        return this.codigo;
+    }
+
+    // Está com erro, não consegue achar o professor....
+    public String getProfessor() {
+        return Professor.getEmail();
+    }
 }

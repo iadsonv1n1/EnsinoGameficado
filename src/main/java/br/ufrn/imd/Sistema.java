@@ -2,7 +2,10 @@ package br.ufrn.imd;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
+
+import static br.ufrn.imd.Banco.adicionarTurma;
 
 public class Sistema{
     public List<Professor> professores = new ArrayList<>();
@@ -26,7 +29,9 @@ public class Sistema{
     public void verificarOpcao(String opcao){
         if(opcao.equals("1")){
             cadastrarProfessor(separarDados(lerLinha()));
-        }else if(opcao.equals("sair")){
+        } else if(opcao.equals("2")) {
+            cadastrarTurma(separarDados(lerLinha()));
+        } else if(opcao.equals("sair")){
             fecharSistema(opcao);
         }
     }
@@ -52,6 +57,11 @@ public class Sistema{
             this.professores.add(professor);
             Banco.adicionarProfessor(professor);
         }
+    }
+
+    public void cadastrarTurma(List<String> dados) {
+        Turma turma =  new Turma(dados.get(0));
+        Banco.adicionarTurma(turma);
     }
 
     public boolean professorExiste(Professor professor){

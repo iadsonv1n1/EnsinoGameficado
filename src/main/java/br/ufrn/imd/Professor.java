@@ -2,7 +2,7 @@ package br.ufrn.imd;
 
 public class Professor {
     private String nome;
-    private String email;
+    private static String email;
 
     Professor(String nome, String email){
         this.nome = nome;
@@ -17,7 +17,7 @@ public class Professor {
         this.nome = nome;
     }
 
-    public String getEmail() {
+    public static String getEmail() {
         return email;
     }
 
