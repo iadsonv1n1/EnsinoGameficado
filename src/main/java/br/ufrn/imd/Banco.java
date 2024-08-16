@@ -68,10 +68,6 @@ public class Banco {
         });
     }
 
-
-
-
-
     public static CompletableFuture<String> procurarProfessor(String nomeProfessor) {
         CompletableFuture<String> future = new CompletableFuture<>();
         DatabaseReference ref = database.getReference("profs");
