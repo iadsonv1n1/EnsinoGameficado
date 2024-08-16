@@ -3,14 +3,16 @@ package br.ufrn.imd;
 public class Turma {
     private int codigo;
     private String nome;
+    private String professor;
 
-    Turma(String nome){
+    Turma(String professor, String nome){
         this.nome = nome;
         this.codigo = geradorDeCodigoAleatorio();
+        this.professor = professor;
     }
 
     public int geradorDeCodigoAleatorio(){
-        int range = (1000 - 9999) +1;
+        int range = (9999 - 1000) + 1;
         int numeroAleatorio = (int) ((range * Math.random()) + 1000);
 
         return numeroAleatorio;

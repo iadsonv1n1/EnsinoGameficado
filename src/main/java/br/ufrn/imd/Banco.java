@@ -2,6 +2,7 @@ package br.ufrn.imd;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
@@ -52,11 +53,58 @@ public class Banco {
         String profId = normalizeEmail(turma.getProfessor());
 
         DatabaseReference ref = database.getReference("profs/" + profId + "/turmas");
-
         DatabaseReference newTurma = ref.child(turma.getNome());
 
-        newTurma.child("codigo").setValueAsync(turma.getCode());
+        // Usar setValue com CompletionListener para obter feedback sobre a operação
+        newTurma.child("codigo").setValue(turma.getCode(), new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if (databaseError != null) {
+                    System.err.println("Erro ao adicionar turma: " + databaseError.getMessage());
+                } else {
+                    System.out.println("Turma adicionada com sucesso.");
+                }
+            }
+        });
     }
+
+
+
+
+
+    public static CompletableFuture<String> procurarProfessor(String nomeProfessor) {
+        CompletableFuture<String> future = new CompletableFuture<>();
+        DatabaseReference ref = database.getReference("profs");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String emailEncontrado = null;
+
+                for (DataSnapshot professorSnapshot : dataSnapshot.getChildren()) {
+                    String nome = professorSnapshot.child("nome").getValue(String.class);
+                    if (nome != null && nome.equalsIgnoreCase(nomeProfessor)) {
+                        emailEncontrado = professorSnapshot.child("email").getValue(String.class);
+                        break;
+                    }
+                }
+
+                if (emailEncontrado != null) {
+                    future.complete(emailEncontrado); // Completa o future com o email encontrado
+                } else {
+                    future.complete(null); // Completa o future com null se não encontrado
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.err.println("Erro ao buscar professor: " + databaseError.getMessage());
+                future.completeExceptionally(databaseError.toException()); // Completa o future com exceção em caso de erro
+            }
+        });
+
+        return future;
+    }
+
 
 
     public static void lerDados(FirebaseDatabase database) {

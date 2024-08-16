@@ -60,8 +60,19 @@ public class Sistema{
     }
 
     public void cadastrarTurma(List<String> dados) {
-        Turma turma =  new Turma(dados.get(0));
-        Banco.adicionarTurma(turma);
+        Banco.procurarProfessor(dados.get(0))
+                .thenAccept(email -> {
+                    if (email != null && !email.isEmpty()) {
+                        Turma turma = new Turma(email, dados.get(1));
+                        Banco.adicionarTurma(turma);
+                    } else {
+                        System.out.println("Professor não encontrado.");
+                    }
+                })
+                .exceptionally(ex -> {
+                    System.err.println("Erro ao buscar professor: " + ex.getMessage());
+                    return null;
+                });
     }
 
     public boolean professorExiste(Professor professor){
