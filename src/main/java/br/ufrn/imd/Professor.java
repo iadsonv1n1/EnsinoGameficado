@@ -1,8 +1,12 @@
 package br.ufrn.imd;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Professor {
     private String nome;
-    private static String email;
+    private String email;
+    public List<Turma> turmas = new ArrayList<>();
 
     Professor(String nome, String email){
         this.nome = nome;
@@ -17,12 +21,20 @@ public class Professor {
         this.nome = nome;
     }
 
-    public static String getEmail() {
+    public String getEmail() {
         return email;
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public void setTurmas(Turma turma) {
+        this.turmas.add(turma);
+    }
+
+    public List<Turma> getTurmas() {
+        return turmas;
     }
 
     @Override

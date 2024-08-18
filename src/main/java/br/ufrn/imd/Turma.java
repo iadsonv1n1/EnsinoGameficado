@@ -1,20 +1,22 @@
 package br.ufrn.imd;
 
+import java.util.List;
+
 public class Turma {
     private int codigo;
     private String nome;
-    private String professor;
+    public List<Aluno> alunos;
+    //public List<Tarefa> tarefas;
+    //public List<Premio> premios;
 
-    Turma(String professor, String nome){
+    Turma(String nome){
         this.nome = nome;
         this.codigo = geradorDeCodigoAleatorio();
-        this.professor = professor;
     }
 
     public int geradorDeCodigoAleatorio(){
         int range = (9999 - 1000) + 1;
         int numeroAleatorio = (int) ((range * Math.random()) + 1000);
-
         return numeroAleatorio;
     }
 
@@ -25,8 +27,4 @@ public class Turma {
         return this.codigo;
     }
 
-    // Está com erro, não consegue achar o professor....
-    public String getProfessor() {
-        return Professor.getEmail();
-    }
 }

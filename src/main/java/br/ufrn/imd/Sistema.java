@@ -1,9 +1,6 @@
 package br.ufrn.imd;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 
 import static br.ufrn.imd.Banco.adicionarTurma;
 
@@ -31,6 +28,8 @@ public class Sistema{
             cadastrarProfessor(separarDados(lerLinha()));
         } else if(opcao.equals("2")) {
             cadastrarTurma(separarDados(lerLinha()));
+        } else if(opcao.equals("4")) {
+            cadastrarAluno(separarDados(lerLinha()));
         } else if(opcao.equals("sair")){
             fecharSistema(opcao);
         }
@@ -60,19 +59,34 @@ public class Sistema{
     }
 
     public void cadastrarTurma(List<String> dados) {
-        Banco.procurarProfessor(dados.get(0))
-                .thenAccept(email -> {
-                    if (email != null && !email.isEmpty()) {
-                        Turma turma = new Turma(email, dados.get(1));
-                        Banco.adicionarTurma(turma);
-                    } else {
-                        System.out.println("Professor não encontrado.");
-                    }
-                })
-                .exceptionally(ex -> {
-                    System.err.println("Erro ao buscar professor: " + ex.getMessage());
-                    return null;
-                });
+        String email = dados.get(0);
+        Turma turma = new Turma(dados.get(1));
+        for (Professor p : professores) {
+            if (email.equals(p.getEmail())) {
+                p.setTurmas(turma);
+            } else {
+                System.out.println("Professor não correspondente");
+            };
+        }
+    }
+
+    /*** params Email + Turma + NomeDoAluno ***/
+    public void cadastrarAluno(List<String> dados) {
+        String email = dados.get(0); // Email do prof
+        Aluno aluno = new Aluno(dados.get(2)); // Nome do aluno
+        for (Professor p : professores) {
+            if (email.equals(p.getEmail())) {
+               for (Turma t : p.turmas ) {
+                   if (t.alunos.contains(aluno) ) {
+                       System.out.println("Aluno já existe na turma");
+                   } else {
+                       t.alunos.add(aluno);
+                   }
+               }
+            } else {
+                System.out.println("Professor não correspondente");
+            };
+        }
     }
 
     public boolean professorExiste(Professor professor){

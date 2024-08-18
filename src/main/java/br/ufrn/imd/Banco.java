@@ -2,6 +2,7 @@ package br.ufrn.imd;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 import com.google.auth.oauth2.GoogleCredentials;
@@ -50,7 +51,7 @@ public class Banco {
     }
 
     public static void adicionarTurma(Turma turma) {
-        String profId = normalizeEmail(turma.getProfessor());
+        String profId = "";
 
         DatabaseReference ref = database.getReference("profs/" + profId + "/turmas");
         DatabaseReference newTurma = ref.child(turma.getNome());
@@ -74,20 +75,20 @@ public class Banco {
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String emailEncontrado = null;
+                String emailEncontrado = "";
 
                 for (DataSnapshot professorSnapshot : dataSnapshot.getChildren()) {
                     String nome = professorSnapshot.child("nome").getValue(String.class);
-                    if (nome != null && nome.equalsIgnoreCase(nomeProfessor)) {
+                    if (nome.equalsIgnoreCase(nomeProfessor)) {
                         emailEncontrado = professorSnapshot.child("email").getValue(String.class);
                         break;
                     }
                 }
 
-                if (emailEncontrado != null) {
+                if (!Objects.equals(emailEncontrado, "")) {
                     future.complete(emailEncontrado); // Completa o future com o email encontrado
                 } else {
-                    future.complete(null); // Completa o future com null se não encontrado
+                    future.complete(""); // Completa o future com null se não encontrado
                 }
             }
 
