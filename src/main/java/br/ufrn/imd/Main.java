@@ -1,7 +1,5 @@
 package br.ufrn.imd;
 
-import java.io.IOException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main{
@@ -17,7 +15,7 @@ public class Main{
         String opcao = "";
         do{
                 opcao = teclado.nextLine();
-                sistema.verificarOpcao(opcao);
+                sistema.executar(opcao);
 
         }while(!sistema.fecharSistema(opcao));
         teclado.close();

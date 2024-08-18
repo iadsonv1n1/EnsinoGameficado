@@ -5,7 +5,7 @@ import java.util.List;
 public class Turma {
     private int codigo;
     private String nome;
-    public List<Aluno> alunos;
+    //public List<Aluno> alunos;
     //public List<Tarefa> tarefas;
     //public List<Premio> premios;
 

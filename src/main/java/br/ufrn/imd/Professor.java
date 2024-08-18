@@ -29,12 +29,8 @@ public class Professor {
         return nome;
     }
 
-    public void setTurmas(Turma turma) {
-        this.turmas.add(turma);
-    }
-
-    public List<Turma> getTurmas() {
-        return turmas;
+    public void setTurmas(String nomeDaTurma) {
+        this.turmas.add(new Turma(nomeDaTurma));
     }
 
     @Override
