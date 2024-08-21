@@ -2,10 +2,6 @@ package repositorio;
 
 import dominio.Aluno;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class AlunoRepo extends AbstractRepo<Aluno> {
 
     private final static AlunoRepo INSTANCE = new AlunoRepo();
@@ -15,7 +11,7 @@ public class AlunoRepo extends AbstractRepo<Aluno> {
     }
 
     public Aluno buscarPorNome(String nome){
-        return data.stream().filter(c -> c.getUsername().equals(nome)).findAny().get();
+        return dados.stream().filter(c -> c.getUsername().equals(nome)).findAny().get();
     }
 
 

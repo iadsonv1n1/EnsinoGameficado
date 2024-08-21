@@ -1,9 +1,6 @@
 package repositorio;
 
-import dominio.Aluno;
 import dominio.Professor;
-import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class ProfessorRepo extends AbstractRepo<Professor> {
@@ -15,7 +12,7 @@ public class ProfessorRepo extends AbstractRepo<Professor> {
     }
 
     public Professor buscarPorNome(String nome){
-        return data.stream().filter(c -> c.getUsername().equals(nome)).findAny().get();
+        return dados.stream().filter(c -> c.getUsername().equals(nome)).findAny().get();
     }
 
 }
