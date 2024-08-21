@@ -1,3 +1,6 @@
+import dominio.Professor;
+import repositorio.ProfessorRepo;
+
 import java.util.*;
 
 public class Sistema{
@@ -17,17 +20,23 @@ public class Sistema{
                             "3- Adicionar Tarefa \n"+
                             "4- Adicionar Aluno \n"+
                             "5- Adicionar Premio \n" +
-                            "6- Menu");
+                            "6- BuscarTodos");
     }
+
+    Controlador control = new Controlador();
 
     public void executar(String opcao){
         if(opcao.equals("1")){
-            cadastrarProfessor(separarDados(lerLinha()));
+            control.cadastrarProfessor(separarDados(lerLinha()));
         } else if(opcao.equals("2")) {
-            cadastrarTurma(separarDados(lerLinha()));
+            //cadastrarTurma(separarDados(lerLinha()));
         } else if(opcao.equals("4")) {
-            //cadastrarAluno(separarDados(lerLinha()));
-        } else if(opcao.equals("sair")){
+            control.cadastrarAluno(separarDados(lerLinha()));
+        } else if(opcao.equals("6")) {
+            Professor r = control.buscarProfessorPorNome(lerLinha());
+            System.out.println(r);
+        }
+        else if(opcao.equals("sair")){
             fecharSistema(opcao);
         }
     }
