@@ -18,11 +18,11 @@
 # Instruções de como realizar o build
 
 ````
-mvn exec:java -Dexec.mainClass="main.java.br.ufrn.imd.Main"
+mvn exec:java -Dexec.mainClass="main.java.Main"
 ````
 
 # Instruções de como executar
 
 ````
-mvn exec:java -Dexec.mainClass="main.java.br.ufrn.imd.Main"
+mvn exec:java -Dexec.mainClass="main.java.Main"
 ````
