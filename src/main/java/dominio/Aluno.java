@@ -1,5 +1,9 @@
 package dominio;
 
+import repositorio.TurmaRepo;
+
+import java.util.List;
+
 public record Aluno(String username, String password){
 
     public String getUsername() {

@@ -1,31 +1,37 @@
-import dominio.Professor;
-import repositorio.ProfessorRepo;
+import controladores.AlunoControlador;
+import controladores.ProfessorControlador;
+import controladores.TurmaControlador;
 
 import java.util.*;
 
 public class Sistema{
 
-    Controlador control = new Controlador();
+    ProfessorControlador controlProf = new ProfessorControlador();
+    AlunoControlador controlAluno = new AlunoControlador();
+
+    TurmaControlador controlTurma = new TurmaControlador();
 
     public void mostraMenu(){
-        System.out.println( "1- Cadastrar-se \n"+
-                            "2- Adicionar Turma \n"+
-                            "3- Adicionar Tarefa \n"+
-                            "4- Adicionar Aluno \n"+
-                            "5- Adicionar Premio \n" +
-                            "6- BuscarTodos");
+        System.out.println( "1- Cadastrar Professor \n"+
+                            "2- Cadastrar Aluno \n"+
+                            "3- Adicionar Turma \n"+
+                            "4- Adicionar Tarefa \n"+
+                            "5- Adicionar Aluno \n"+
+                            "6- Adicionar Premio \n" +
+                            "7- BuscarTodos");
     }
 
     public void executar(String opcao){
-        if(opcao.equals("1")){
-            control.cadastrarProfessor(separarDados(lerLinha()));
+        if (opcao.equals("1")) {
+            controlProf.cadastrar(separarDados(lerLinha()));
         } else if(opcao.equals("2")) {
-            control.cadastrarTurma(separarDados(lerLinha()));
-        } else if(opcao.equals("4")) {
-            control.cadastrarAluno(separarDados(lerLinha()));
-        } else if(opcao.equals("6")) {
-            Professor r = control.buscarProfessorPorNome(lerLinha());
-            System.out.println(r);
+            controlAluno.cadastrar(separarDados(lerLinha()));
+        } else if(opcao.equals("3")) {
+            controlTurma.cadastrar(separarDados(lerLinha()));
+        } else if(opcao.equals("7")) {
+            controlProf.listar();
+            controlAluno.listar();
+            controlTurma.listar();
         }
         else if(opcao.equals("sair")){
             fecharSistema(opcao);
