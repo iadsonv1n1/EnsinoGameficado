@@ -11,8 +11,7 @@ public class AlunoRepo extends AbstractRepo<Aluno> {
     }
 
     public Aluno buscarPorNome(String nome){
-        return dados.stream().filter(c -> c.getUsername().equals(nome)).findAny().get();
+        return dados.stream().filter(c -> c.getNome().equals(nome)).findAny().get();
     }
-
 
 }

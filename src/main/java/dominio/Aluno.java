@@ -4,21 +4,40 @@ import repositorio.TurmaRepo;
 
 import java.util.List;
 
-public record Aluno(String username, String password){
+public class Aluno {
 
-    public String getUsername() {
-        return username;
+    private String nome;
+
+    private String senha;
+
+    private int pontos;
+
+    public Aluno(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
     }
 
-    public String getPassword() {
-        return password;
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setPontos(int pontos) {
+        this.pontos = pontos;
+    }
+
+    public int getPontos() {
+        return pontos;
     }
 
     @Override
     public String toString() {
         return "Aluno{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                "nome='" + nome + '\'' +
+                ", senha='" + senha + '\'' +
                 '}';
     }
 }

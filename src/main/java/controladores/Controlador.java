@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Controlador<T> {
 
-    void cadastrar(List<String> String);
+    void cadastrar(List<String> dados);
 
     void listar();
 

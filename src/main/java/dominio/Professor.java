@@ -1,20 +1,20 @@
 package dominio;
 
-public record Professor(String username, String password) {
+public record Professor(String nome, String senha) {
 
-    public String getUsername() {
-        return username;
+    public String getNome() {
+        return nome;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSenha() {
+        return senha;
     }
 
     @Override
     public String toString() {
         return "Professor{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                "nome='" + nome + '\'' +
+                ", senha='" + senha + '\'' +
                 '}';
     }
 }
