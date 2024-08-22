@@ -11,6 +11,15 @@ import java.util.NoSuchElementException;
 public class TurmaControlador implements Controlador<Turma> {
     ProfessorControlador controladorProfessor = new ProfessorControlador();
 
+    /**
+     * Verifica se o professor e a turma já estão cadastrados.
+     * Se o professor estiver cadastrado e a turma não, ela será cadastrada.
+     * Caso contrario sera exibida as seguintes mensagens 'Professor não econtrado'
+     * ou 'Turma já existe'.
+     *
+     * @param dados (nome do professor, nome da turma)
+     */
+
     @Override
     public void cadastrar (List<String> dados){
         Professor professor = controladorProfessor.buscar(dados.get(0));

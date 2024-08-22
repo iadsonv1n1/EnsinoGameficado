@@ -1,11 +1,7 @@
 package controladores;
 
-import dominio.Aluno;
 import dominio.Professor;
-import dominio.Turma;
-import repositorio.AlunoRepo;
 import repositorio.ProfessorRepo;
-import repositorio.TurmaRepo;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -29,7 +25,7 @@ public class ProfessorControlador implements Controlador<Professor> {
     public Professor buscar(String nome) {
         try {
             ProfessorRepo professorRepo = ProfessorRepo.getInstance();
-            return professorRepo.buscarPorNome(nome);
+            return professorRepo.buscarProfessorPorNome(nome);
         } catch (NoSuchElementException e) {
             System.out.print("Professor não encontrado");
             return null;

@@ -1,11 +1,6 @@
 package dominio;
 
-import repositorio.TurmaRepo;
-
-import java.util.List;
-
 public class Aluno {
-
     private String nome;
 
     private String senha;

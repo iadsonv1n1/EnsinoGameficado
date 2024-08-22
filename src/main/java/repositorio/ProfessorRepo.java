@@ -5,13 +5,13 @@ import dominio.Professor;
 
 public class ProfessorRepo extends AbstractRepo<Professor> {
 
-    private final static ProfessorRepo INSTANCE = new ProfessorRepo();
+    private final static ProfessorRepo PROFESSOR_REPO = new ProfessorRepo();
 
     public static ProfessorRepo getInstance() {
-        return INSTANCE;
+        return PROFESSOR_REPO;
     }
 
-    public Professor buscarPorNome(String nome){
+    public Professor buscarProfessorPorNome(String nome){
         return dados.stream().filter(c -> c.getNome().equals(nome)).findAny().get();
     }
 

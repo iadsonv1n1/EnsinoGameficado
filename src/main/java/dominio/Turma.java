@@ -2,7 +2,9 @@ package dominio;
 
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
-
+/** - A turma possui um condigo Aleatorio de 4 digitos;
+    - A turma possui um Professor para identificar de quem é a turma;
+ */
 public class Turma {
     private int codigo;
     private String nome;
