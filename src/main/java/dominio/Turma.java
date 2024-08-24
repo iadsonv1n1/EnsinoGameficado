@@ -1,5 +1,7 @@
 package dominio;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 /** - A turma possui um condigo Aleatorio de 4 digitos;
@@ -9,6 +11,8 @@ public class Turma {
     private int codigo;
     private String nome;
     private Professor professor;
+    private List<Tarefa> tarefas = new LinkedList<>();
+    private List<Aluno> alunos = new LinkedList<>();
 
     public Turma (String nome, Professor professor){
         this.nome = nome;
@@ -28,12 +32,22 @@ public class Turma {
         this.nome = nome;
     }
 
+    public void adicionarTarefa(Tarefa tarefa) {
+        tarefas.add(tarefa);
+    }
+
+    public void adicionarAluno(Aluno aluno) {
+        alunos.add(aluno);
+    }
+
     @Override
     public String toString() {
         return "Turma{" +
                 "nome='" + nome + '\'' +
-                ", codigo=" + codigo +
-                '}';
+                ", codigo=" + codigo + '\'' +
+                ", professor=" + professor +  '\'' +
+                ", tarefas=" + tarefas +  '\'' +
+                ", alunos=" + alunos + '}';
     }
 
     @Override

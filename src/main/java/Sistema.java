@@ -17,9 +17,11 @@ public class Sistema{
                             "2- Cadastrar Aluno \n"+
                             "3- Adicionar Turma \n"+
                             "4- Adicionar Tarefa \n"+
-                            "5- Adicionar Aluno \n"+
-                            "6- Adicionar Premio \n" +
-                            "7- BuscarTodos");
+                            "5- Adicionar Aluno à Turma \n"+
+                            "6- Adicionar Tarefa à Turma \n"+
+                            "7- Adicionar Premio \n" +
+                            "8- Adicionar Premio à Tarefa \n"+
+                            "9- BuscarTodos");
     }
 
     /**
@@ -36,13 +38,16 @@ public class Sistema{
             turmaControl.cadastrar(separarDados(lerLinha()));
         } else if(opcao.equals("4")){
             tarefaControl.cadastrar(separarDados(lerLinha()));
-        }else if(opcao.equals("7")) {
-            System.out.println(tarefaControl.buscar(lerLinha()));
-            //testes
-//            professorControl.listar();
-//            alunoControl.listar();
-//            turmaControl.listar();
-//            tarefaControl.listar();
+        } else if (opcao.equals("5")) {
+            turmaControl.adicionarAluno(separarDados(lerLinha()));
+        } else if (opcao.equals("6")) {
+            turmaControl.adicionarTarefa(separarDados(lerLinha()));
+        } else if(opcao.equals("9")) {
+            // Opção de teste
+            professorControl.listar();
+            alunoControl.listar();
+            turmaControl.listar();
+            tarefaControl.listar();
         }
         else if(opcao.equals("sair")){
             fecharSistema(opcao);

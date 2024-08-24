@@ -51,4 +51,17 @@ public class TurmaControlador implements Controlador<Turma> {
         }
     }
 
+    public void adicionarAluno(List<String> dados) {
+        TurmaRepo turmaRepo = TurmaRepo.getInstance();
+        turmaRepo.adicionarAlunoATurma(dados.get(0), dados.get(1));
+        System.out.println("Aluno adicionado à turma");
+    }
+
+    public void adicionarTarefa(List<String> dados) {
+        TurmaRepo turmaRepo = TurmaRepo.getInstance();
+        turmaRepo.adicionarTarefaATurma(dados.get(0), dados.get(1));
+        System.out.println("Tarefa adicionada à turma");
+    }
+
+
 }
