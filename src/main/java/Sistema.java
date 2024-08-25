@@ -51,6 +51,9 @@ public class Sistema{
             } else if (opcao.equals("8")) {
                 turmaControl.adicionarPremio(separarDados(lerLinha()));
             } else if(opcao.equals("9")) {
+                professorControl.listar();
+                alunoControl.listar();
+                premioControl.listar();
                 turmaControl.listar();
             } else if(opcao.equals("sair")){
                 fecharSistema(opcao);

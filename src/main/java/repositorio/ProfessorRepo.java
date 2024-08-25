@@ -3,7 +3,7 @@ package repositorio;
 import dominio.Professor;
 
 
-public class ProfessorRepo extends TurmaRepo {
+public class ProfessorRepo extends AbstractRepo<Professor> {
 
     private final static ProfessorRepo PROFESSOR_REPO = new ProfessorRepo();
 
