@@ -11,6 +11,7 @@ public class PremioControlador implements Controlador<Premio> {
     @Override
     public void cadastrar(List<String> dados) throws IndexOutOfBoundsException {
         premioRepo.salvar(new Premio(dados.get(0), Integer.parseInt(dados.get(1))));
+        System.out.println("Premio cadastrado com sucesso!");
     }
 
     @Override

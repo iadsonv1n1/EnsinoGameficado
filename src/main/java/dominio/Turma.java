@@ -47,12 +47,12 @@ public class Turma {
 
     @Override
     public String toString() {
-        return "Turma{" +
-                "nome='" + nome + '\'' +
-                ", codigo=" + codigo + '\'' +
-                ", professor=" + professor +  '\'' +
-                ", tarefas=" + tarefas +  '\'' +
-                ", alunos=" + alunos + '}';
+        return "Turma: " + nome +
+                "  Codigo da Turma: " + codigo + "\n" +
+                "   Professor: " + professor.getNome() +  "\n" +
+                "   Tarefas: " + tarefas + "\n"+
+                "   Premios: " + premios + "\n" +
+                "   Alunos: " + alunos + "\n";
     }
 
     @Override

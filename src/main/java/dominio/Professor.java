@@ -14,10 +14,8 @@ public record Professor(String nome, String senha) {
 
     @Override
     public String toString() {
-        return "Professor{" +
-                "nome='" + nome + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
+        return "Professor\n" +
+                "nome='" + nome + "\n";
     }
 
     @Override

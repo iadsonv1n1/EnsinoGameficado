@@ -24,4 +24,10 @@ public record Premio(String nome, int pontos) {
     public int hashCode() {
         return Objects.hash(nome);
     }
+
+    @Override
+    public String toString() {
+        return "Premio: " + nome + "\n" +
+                "           Pontos necessarios: " + pontos + "\n";
+    }
 }

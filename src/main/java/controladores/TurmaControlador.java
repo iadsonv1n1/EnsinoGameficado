@@ -27,7 +27,7 @@ public class TurmaControlador implements Controlador<Turma> {
         if(professor != null){
             if((buscar(dados.get(1)) == null)) {
                 turmaRepo.salvar(new Turma(dados.get(1), professor));
-                listar();
+                System.out.println("Turma cadastrada com sucesso!");
             }else {
                 System.out.println("Turma já existe!");
             }

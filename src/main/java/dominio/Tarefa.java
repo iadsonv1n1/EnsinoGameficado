@@ -30,4 +30,12 @@ public record Tarefa(String titulo, String descricao, int pontos) {
     public int hashCode() {
         return Objects.hash(titulo);
     }
+
+    @Override
+    public String toString() {
+        return "Tarefa: " + titulo + "\n" +
+                "           Descrição: " + descricao + "\n" +
+                "           Pontos: " + pontos + "\n";
+
+    }
 }

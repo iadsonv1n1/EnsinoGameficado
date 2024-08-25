@@ -32,10 +32,7 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Aluno{" +
-                "nome='" + nome + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
+        return nome;
     }
 
     @Override
