@@ -2,16 +2,15 @@
 
 ## Sistema de Turma Gaminificada
 
-Plataforma para criação de Turmas Gameficadas, que tem como proposito permitir 
-que professor crie Turmas dentro do sistema, onde ele pode criar tarefas e inseri-las
-em suas Turmas. Cada Tarefa possuirá uma pontação, que será adquirida pelo aluno
-quando finalizada. No final de tudo os Alunos poderam usar os pontos acumulados para
-resgatar os Premios que por sua vez serão Cadastrados no sistema e inseridos nas Turma
-pelo Professor.
-
-Essa uma didatica que tem sido adotada por alguns Professores, com o objetivo de
+Essa é uma didática que tem sido adotada por alguns Professores, com o objetivo de
 estimular seus alunos a se dedicarem cada vez mais nos estudos dentro e fora da sala 
 de aula.
+
+Com isso Sistema permite criação de Turmas Gameficadas, que tem como proposito permitir 
+que professores criem Turmas, onde eles podem cadastrar tarefas e premios para inseri-los
+em suas Turmas. Cada Tarefa possuirá uma pontação, que será adquirida pelo aluno
+quando finalizada. No final de tudo os Alunos poderam usar os pontos acumulados para
+resgatar os Premios adicionados aquela turma.
 
 # Participantes
 
@@ -42,7 +41,7 @@ executando buscas e envio de dados.
     <img src="src/assets/controladores.png">
 </p>
 
-Além disso, existem as classes Main e Sistema que reponsavel por, fazer a leitura e impressão de 
+Além disso, existem as classes Main e Sistema que é reponsavel por, fazer a leitura e impressão de 
 dados no console. Enquanto a classe Main é responsavel por manter o sistema operando
 até que o usuario decida sair. 
 
@@ -146,6 +145,15 @@ turma01; remover 1 questao da prova
 - ###  Listar turmas
 Digite 9 e pressione enter. Irá listar todas turmas cadastradas no sisetma.
 
+- ### Mostrar Menu 
+````
+menu
+````
+
+- ### Encerrar o Programa
+````
+sair
+````
 
 
 
