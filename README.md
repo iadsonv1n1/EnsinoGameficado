@@ -43,9 +43,11 @@ executando buscas e envio de dados.
 
 Além disso, existem as classes Main e Sistema que é reponsavel por, fazer a leitura e impressão de 
 dados no console. Enquanto a classe Main é responsavel por manter o sistema operando
-até que o usuario decida sair. 
-
-
+até que o usuario decida sair.
+<p align="center">
+    <img src="src/assets/sistema.png">
+    <img align="up" src="src/assets/main.png">
+</p>
 
 
 # Instruções de como realizar o build
