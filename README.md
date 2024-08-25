@@ -53,7 +53,7 @@ até que o usuario decida sair.
 # Instruções de como realizar o build
 Entre na pasta do projeto como Maven instalado e use o seguinte comando:
 ````
-mvn install clean
+mvn clean install
 ````
 
 # Instruções de como executar
