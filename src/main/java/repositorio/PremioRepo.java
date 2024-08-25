@@ -11,8 +11,8 @@ public class PremioRepo extends AbstractRepo<Premio>{
         return INSTANCE;
     }
 
-    public Premio buscarPontuacao(String nome){
-        return dados.stream().filter(c -> c.getNome().equals(nome)).findAny().get();
+    public Premio buscarPremioPorNome(String nome){
+        return dados.stream().filter(c -> c.getNome().equalsIgnoreCase(nome)).findAny().get();
     }
 
 }

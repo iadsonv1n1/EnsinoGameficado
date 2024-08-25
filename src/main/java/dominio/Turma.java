@@ -11,8 +11,9 @@ public class Turma {
     private int codigo;
     private String nome;
     private Professor professor;
-    private List<Tarefa> tarefas = new LinkedList<>();
-    private List<Aluno> alunos = new LinkedList<>();
+    public List<Tarefa> tarefas = new LinkedList<>();
+    public List<Aluno> alunos = new LinkedList<>();
+    public List<Premio> premios = new LinkedList<>();
 
     public Turma (String nome, Professor professor){
         this.nome = nome;
@@ -38,6 +39,10 @@ public class Turma {
 
     public void adicionarAluno(Aluno aluno) {
         alunos.add(aluno);
+    }
+
+    public void adicionarPremio(Premio premio) {
+        premios.add(premio);
     }
 
     @Override

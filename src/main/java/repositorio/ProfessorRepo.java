@@ -12,7 +12,7 @@ public class ProfessorRepo extends AbstractRepo<Professor> {
     }
 
     public Professor buscarProfessorPorNome(String nome){
-        return dados.stream().filter(c -> c.getNome().equals(nome)).findAny().get();
+        return dados.stream().filter(c -> c.getNome().equalsIgnoreCase(nome)).findAny().get();
     }
 
 }

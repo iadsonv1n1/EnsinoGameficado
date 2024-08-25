@@ -12,7 +12,7 @@ public class Sistema{
     TurmaControlador turmaControl = new TurmaControlador();
     TarefaControlador tarefaControl = new TarefaControlador();
 
-    public void mostraMenu(){
+    public void mostraMenu() {
         System.out.println( "1- Cadastrar Professor \n"+
                             "2- Cadastrar Aluno \n"+
                             "3- Adicionar Turma \n"+
@@ -29,37 +29,33 @@ public class Sistema{
      * @param opcao
      */
 
-    public void executar(String opcao){
-        if (opcao.equals("1")) {
-            professorControl.cadastrar(separarDados(lerLinha()));
-        } else if(opcao.equals("2")) {
-            alunoControl.cadastrar(separarDados(lerLinha()));
-        } else if(opcao.equals("3")) {
-            turmaControl.cadastrar(separarDados(lerLinha()));
-        } else if(opcao.equals("4")){
-            tarefaControl.cadastrar(separarDados(lerLinha()));
-        } else if (opcao.equals("5")) {
-            turmaControl.adicionarAluno(separarDados(lerLinha()));
-        } else if (opcao.equals("6")) {
-            turmaControl.adicionarTarefa(separarDados(lerLinha()));
-        } else if(opcao.equals("9")) {
-            // Opção de teste
-            professorControl.listar();
-            alunoControl.listar();
-            turmaControl.listar();
-            tarefaControl.listar();
-        }
-        else if(opcao.equals("sair")){
-            fecharSistema(opcao);
+    public void executar(String opcao) {
+        try {
+            if (opcao.equals("1")) {
+                professorControl.cadastrar(separarDados(lerLinha()));
+            } else if (opcao.equals("2")) {
+                alunoControl.cadastrar(separarDados(lerLinha()));
+            } else if (opcao.equals("3")) {
+                turmaControl.cadastrar(separarDados(lerLinha()));
+            } else if (opcao.equals("4")) {
+                tarefaControl.cadastrar(separarDados(lerLinha()));
+            } else if (opcao.equals("5")) {
+                turmaControl.adicionarAluno(separarDados(lerLinha()));
+            } else if (opcao.equals("6")) {
+                turmaControl.adicionarTarefa(separarDados(lerLinha()));
+            } else if (opcao.equals("9")) {
+                turmaControl.adicionarPremio(separarDados(lerLinha()));
+            } else if (opcao.equals("sair")) {
+                fecharSistema(opcao);
+            }
+        }catch (IndexOutOfBoundsException  | NumberFormatException e){
+            System.out.println("FORMATO DE DADOS INVÁLIDO!");
         }
     }
 
     /**
-     * Faz a leitura de linha contendo os dados para executar
+     * Faz a leitura da linha contendo os dados para executar
      * a ação escolhida pelo usuario
-     * ex:1(opcao escolhida)
-     * andre; silva1235
-     *
      * @return a linha com todos os dados do usuario;
      */
     public String lerLinha(){
@@ -70,9 +66,16 @@ public class Sistema{
     }
 
     /**
-     * Separa os dados informados pelo usuario
-     * @param linha
-     * @return lista com os dados separados
+     * Separa os dados informados pelo usuario por usando como
+     * referencia para separar ';' e um espaço.
+     *
+     * @param linha (String)
+     * exemplo: <blockquote><pre>
+     * "iadson; silva"
+     * </pre></blockquote>
+     *
+     * @return List
+
      */
     public List<String> separarDados(String linha){
         List<String> dadosSeparados = List.of(linha.split(";\\s"));

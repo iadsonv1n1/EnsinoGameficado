@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 public class TarefaControlador implements Controlador<Tarefa> {
     TarefaRepo tarefaRepo = TarefaRepo.getInstance();
     @Override
-    public void cadastrar(List<String> dados) {
+    public void cadastrar(List<String> dados) throws IndexOutOfBoundsException {
         tarefaRepo.salvar(new Tarefa(dados.get(0), dados.get(1), Integer.parseInt(dados.get(2))));
         System.out.println("Tarefa Cadastrada!");
     }

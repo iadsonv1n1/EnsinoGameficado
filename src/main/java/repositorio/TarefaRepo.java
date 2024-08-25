@@ -10,6 +10,6 @@ public class TarefaRepo extends AbstractRepo<Tarefa> {
     }
 
     public Tarefa buscarTarefaPorNome(String titulo){
-        return dados.stream().filter(t -> t.titulo().equals(titulo)).findAny().get();
+        return dados.stream().filter(t -> t.titulo().equalsIgnoreCase(titulo)).findAny().get();
     }
 }
