@@ -9,6 +9,10 @@ public abstract class AbstractRepo<T> implements Repositorio<T> {
 
     @Override
     public void salvar(T entidade) {
+        if (dados.contains(entidade)) {
+            System.err.println("Objeto Já Existe Na Lista");
+            return;
+        }
         dados.add(entidade);
     }
 

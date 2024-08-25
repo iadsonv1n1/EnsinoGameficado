@@ -22,7 +22,6 @@ public class TurmaRepo extends AbstractRepo<Turma>{
     }
 
     public void adicionarAlunoATurma(String turma, String aluno) {
-
         Turma essa = buscarTurmaPorNome(turma);
         Aluno nome = AlunoRepo.getInstance().buscarPorNome(aluno);
         essa.adicionarAluno(nome);

@@ -1,7 +1,5 @@
-import controladores.AlunoControlador;
-import controladores.ProfessorControlador;
-import controladores.TarefaControlador;
-import controladores.TurmaControlador;
+import controladores.*;
+import dominio.Premio;
 
 import java.util.*;
 
@@ -11,17 +9,27 @@ public class Sistema{
     AlunoControlador alunoControl = new AlunoControlador();
     TurmaControlador turmaControl = new TurmaControlador();
     TarefaControlador tarefaControl = new TarefaControlador();
+    PremioControlador premioControl = new PremioControlador();
+
 
     public void mostraMenu() {
         System.out.println( "1- Cadastrar Professor \n"+
+                            "Para cadastrar digite: NomeDoProfessor; Senha \n" +
                             "2- Cadastrar Aluno \n"+
+                            "Para cadastrar digite: NomedoAluno; Senha \n" +
                             "3- Adicionar Turma \n"+
+                            "Para cadastrar digite: NomeDoProfessor; NomeDaTurma \n" +
                             "4- Adicionar Tarefa \n"+
+                            "Para cadastrar digite: TituloDaTarefa; Descricao; Pontos \n" +
                             "5- Adicionar Aluno à Turma \n"+
+                            "Para cadastrar digite: NomeDaTurma; NomeDoAluno \n" +
                             "6- Adicionar Tarefa à Turma \n"+
+                            "Para cadastrar digite: NomedaTurma; NomeDaTarefa \n" +
                             "7- Adicionar Premio \n" +
-                            "8- Adicionar Premio à Tarefa \n"+
-                            "9- BuscarTodos");
+                            "Para cadastrar digite: Titulo; Pontos \n" +
+                            "menu- Apresenta essa mensagem novamente \n" +
+                            "sair- Fecha o sistema \n");
+
     }
 
     /**
@@ -29,27 +37,36 @@ public class Sistema{
      * @param opcao
      */
 
-    public void executar(String opcao) {
+    public void executar(String opcao){
         try {
             if (opcao.equals("1")) {
                 professorControl.cadastrar(separarDados(lerLinha()));
-            } else if (opcao.equals("2")) {
+            } else if(opcao.equals("2")) {
                 alunoControl.cadastrar(separarDados(lerLinha()));
-            } else if (opcao.equals("3")) {
+            } else if(opcao.equals("3")) {
                 turmaControl.cadastrar(separarDados(lerLinha()));
-            } else if (opcao.equals("4")) {
+            } else if(opcao.equals("4")) {
                 tarefaControl.cadastrar(separarDados(lerLinha()));
             } else if (opcao.equals("5")) {
                 turmaControl.adicionarAluno(separarDados(lerLinha()));
             } else if (opcao.equals("6")) {
                 turmaControl.adicionarTarefa(separarDados(lerLinha()));
-            } else if (opcao.equals("9")) {
+            } else if (opcao.equals("7")) {
                 turmaControl.adicionarPremio(separarDados(lerLinha()));
-            } else if (opcao.equals("sair")) {
+            } else if(opcao.equals("9")) {
+                // Opção de teste
+                professorControl.listar();
+                alunoControl.listar();
+                turmaControl.listar();
+                tarefaControl.listar();
+                premioControl.listar();
+            } else if(opcao.equals("sair")){
                 fecharSistema(opcao);
+            } else if (opcao.equals("menu")) {
+                mostraMenu();
             }
-        }catch (IndexOutOfBoundsException  | NumberFormatException e){
-            System.out.println("FORMATO DE DADOS INVÁLIDO!");
+        } catch (IndexOutOfBoundsException | NumberFormatException e) {
+            System.err.println("Comando Inválido!");
         }
     }
 
