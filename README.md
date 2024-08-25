@@ -69,7 +69,7 @@ Quando executar o programa será exibido o seguinte Menu:
 1- Cadastrar Professor
 2- Cadastrar Aluno
 3- Cadastrar Turma
-4- Cadastrat Tarefa
+4- Cadastrar Tarefa
 5- Cadastrar Premio
 6- Adicionar Aluno à Turma
 7- Adicionar Tarefa à Turma
@@ -136,7 +136,7 @@ por exemplo:
 turma01; calcular quadrado
 ````
 
-- ###  Adicionar Aluno na Turma
+- ###  Adicionar Premio na Turma
 Digite 8 e pressione enter.
 Em seguida digite o Nome da Turma e Nome do Aluno, separados por ';' e um espaço,
 por exemplo:
